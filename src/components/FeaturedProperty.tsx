@@ -1,6 +1,6 @@
 import React from 'react'
 
-const FeaturedProperty = () => {
+const FeaturedProperty: React.FC  = () => {
   return (
     <div>FeaturedProperty</div>
   )
