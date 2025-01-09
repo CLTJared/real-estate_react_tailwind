@@ -6,13 +6,19 @@ import Home from "./components/Home.js";
 import { useState } from "react";
 import { propertyProps } from "./components/FeaturedProperty.js"
 
-function App() {
+const App: React.FC = () => {
   const [selectedProperty, setSelectedProperty] = useState<propertyProps|null>(null);
 
   return (
     <div className="min-h-screen w-full bg-gray-50">
       <Home />
       <FeaturedProperty setSelectedProperty={setSelectedProperty} />
+      {selectedProperty && (
+        <PropertyModel
+          properties={selectedProperty}
+          onClose={() => setSelectedProperty(null)}
+        />
+      )}
       <Contact />
       <Footer />
     </div>
