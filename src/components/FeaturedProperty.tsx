@@ -12,7 +12,7 @@ export interface propertyProps {
   beds: number;
   baths: number;
   sqft: number;
-  images: object;
+  images: string[];
 }
 
 interface Props {
