@@ -3,7 +3,7 @@ import properties from './properties.tsx';
 import { FaBath, FaBed, FaHeart, FaLocationDot, FaRuler } from 'react-icons/fa6';
 
 export interface propertyProps {
-  id: number;
+  id: string;
   image: string;
   price: string;
   title: string;
@@ -28,7 +28,7 @@ const FeaturedProperty: React.FC<Props> = ({setSelectedProperty}) => {
 
       </h2>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mx-4 lg:mx-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:mx-4lg:mx-8">
         {properties.map((property: propertyProps) => (
           <div key={property.id} className="bg-white rounded-2xl drop-shadow-lg overflow-hidden
           hover:drop-shadow-xl hover:scale-105 transition-all duration-300 relative group cursor-pointer"
