@@ -6,7 +6,7 @@ function formatUSD(number: number): string {
 
 
 function createImage(picW: number = 600, picH: number = 600) {
-  return faker.image.urlPicsumPhotos({width: picW, height: picH})
+  return faker.image.urlPicsumPhotos({ width: picW, height: picH})
 }
 
 const createProperty = () => {
@@ -20,7 +20,7 @@ const createProperty = () => {
     beds: faker.number.int({ min: 2, max: 5 }),
     baths: faker.number.int({ min: 2, max: 5 }),
     sqft: faker.number.int({ min: 1500, max: 5500 }),
-    images: Array.from({ length: 4}, createImage)
+    images: Array.from({ length: 4}, () => createImage())
   }
 }
 
