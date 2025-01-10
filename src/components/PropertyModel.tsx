@@ -94,13 +94,13 @@ const PropertyModel: React.FC<ModelProps> = ({properties, onClose}) => {
                 <span>{properties.location}</span>
               </div>
 
-              <h2 className="text-2xl font-bold-text-gray-800 mb-2">
-                {properties.title}
-              </h2>
-              <div className="text-3xl font-bold text-blue-600 mb-4">
+              <div className="text-3xl font-bold text-blue-600 mb-2">
                 {properties.price}
               </div>
-
+              <h2 className="text-2xl font-bold-text-gray-800 mb-4">
+                {properties.title}
+              </h2>
+              
               <div className="flex gap-6 mb-6 p-5 bg-gray-50">
                 <div className="flex items-center gap-2">
                     <FaBed className="text-blue-500" />
