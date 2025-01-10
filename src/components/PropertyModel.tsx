@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { propertyProps } from './FeaturedProperty';
-import { FaChevronLeft, FaChevronRight, FaHeart, FaX } from 'react-icons/fa6';
+import { FaBath, FaBed, FaChevronLeft, FaChevronRight, FaHeart, FaLocationDot, FaRuler, FaX } from 'react-icons/fa6';
 
 interface ModelProps {
   properties: propertyProps|null;
@@ -17,7 +17,6 @@ const PropertyModel: React.FC<ModelProps> = ({properties, onClose}) => {
   const nextImage = () => { 
     setImageIndex((prev) => {
       const picIndex = prev === images.length - 1 ? 0 : prev + 1;
-      console.log(picIndex);
       return picIndex;
     })
     
@@ -25,7 +24,6 @@ const PropertyModel: React.FC<ModelProps> = ({properties, onClose}) => {
   const prevImage = () => { 
     setImageIndex((prev) => {
       const picIndex = prev === 0 ? images.length - 1 : prev - 1
-      console.log(picIndex);
       return picIndex;
     }) 
   }
@@ -59,8 +57,44 @@ const PropertyModel: React.FC<ModelProps> = ({properties, onClose}) => {
           </div>
         </div>
 
+          <div className="p-6">
+              <div className="flex items-center gap-2 text-gray-500 text-sm mb-3">
+                <FaLocationDot className="text-blue-600" />
+                <span>{properties.location}</span>
+              </div>
+
+              <h2 className="text-2xl font-bold-text-gray-800 mb-2">
+                {properties.title}
+              </h2>
+              <div className="text-3xl font-bold text-blue-600 mb-4">
+                {properties.price}
+              </div>
+
+              <div className="flex gap-6 mb-6 p-5 bg-gray-50">
+                <div className="flex items-center gap-2">
+                    <FaBed className="text-blue-500" />
+                    <span className="text-gray-600">{properties.beds} beds</span>
+                  </div>
+                  
+                  <div className="flex items-center gap-2">
+                    <FaBath className="text-blue-500" />
+                    <span className="text-gray-600">{properties.baths} baths</span>
+                  </div>
+  
+                  <div className="flex items-center gap-2">
+                    <FaRuler className="text-blue-500" />
+                    <span className="text-gray-600">{properties.sqft} sqft</span>
+                  </div>
+              </div>
+              <button className="w-full bg-blue-600 text-white py-3 rounded-2xl font-semibold hover:bg-blue-700">
+                Contact Agent
+              </button>
+
+            </div>
+
+        </div>
+
       </div>
-    </div>
   )
 }
 
