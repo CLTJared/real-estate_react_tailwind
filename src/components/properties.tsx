@@ -1,13 +1,13 @@
 import { faker } from "@faker-js/faker";
 
-function formatUSD(number: number): string {
-  return number.toLocaleString('en-US', { style: 'currency', currency: 'USD' })
-}
+const formatUSD = (number: number): string => 
+  number.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
 
+const randAmt = (upper: number, lower: number): number => 
+  Math.floor(Math.random() * (upper - lower + 1)) + lower;
 
-function createImage(picW: number = 600, picH: number = 600) {
-  return faker.image.urlPicsumPhotos({ width: picW, height: picH})
-}
+const createImage = (picW: number = 600, picH: number = 600): string =>
+  faker.image.urlPicsumPhotos({ width: picW, height: picH});
 
 const createProperty = () => {
   return {
@@ -20,10 +20,10 @@ const createProperty = () => {
     beds: faker.number.int({ min: 2, max: 5 }),
     baths: faker.number.int({ min: 2, max: 5 }),
     sqft: faker.number.int({ min: 1500, max: 5500 }),
-    images: Array.from({ length: 4}, () => createImage())
+    images: Array.from({ length: randAmt(3,8)}, () => createImage())
   }
 }
 
-const properties = Array.from({ length: 12 }, createProperty);
+const properties = Array.from({ length: randAmt(20,10) }, createProperty);
 
   export default properties;
